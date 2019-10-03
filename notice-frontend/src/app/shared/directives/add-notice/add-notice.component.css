@@ -1,0 +1,20 @@
+.cardPrincipal{
+    width: 950px;
+    margin-top: 3%;
+    margin-left: 2.3%;
+}
+
+.title-card{
+    display: flex;
+    justify-content: center;
+}
+.title-card h3{
+    color: #3F51B5;
+}
+
+.title {width: 250px;}
+
+.content{
+    display: flex;
+    flex-direction: column;
+}

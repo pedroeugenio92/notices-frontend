@@ -1,0 +1,49 @@
+<br>
+<mat-card>
+    <mat-card>
+        <mat-card-content>
+            <div>
+                <mat-form-field class="campoFilter">
+                    <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off"
+                        placeholder="Fitro de Avisos">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <br>
+    <mat-card>
+        <i title="Adicionar Avisos" (click)="addNotice()" class="fas fa-plus-circle fa-2x add"></i>
+        <div class="titleCardTable">Listagem de Avisos</div>
+        <div class="subtitleCardTable">Todos os avisos previamente cadastrados serão exibidos abaixo</div>
+        <br>
+        <mat-card-content >
+            <table mat-table [dataSource]="dataSource" matSort class="tabela" *ngIf="listNotices.length">
+
+              <ng-container class="tableRow" matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef class="tableHeader">Título</th>
+                <td mat-cell *matCellDef="let element" class="tableRow"> {{element.title}} </td>
+              </ng-container>
+
+              <ng-container class="tableRow" matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef class="tableHeader">Ação</th>
+                <td mat-cell *matCellDef="let element" class="tableRow"> 
+                  <span>
+                    <i title="Editar" (click)="editNotice(element)" class="fas fa-edit edit"></i>
+                    <i title="Excluir" (click)="openDialogDelete(element)" class="fas fa-trash delete"></i>
+                  </span>
+                </td>
+                
+              </ng-container>
+                
+            
+              <tr mat-header-row *matHeaderRowDef="columnsShow"></tr>
+              <tr mat-row *matRowDef="let row; columns: columnsShow;"></tr>
+            </table>
+            <div *ngIf="!listNotices.length" class="tableRow row-no-records">Nenhum registro encontrado</div>
+            
+        </mat-card-content>
+        
+    </mat-card>
+</mat-card>
+
+
