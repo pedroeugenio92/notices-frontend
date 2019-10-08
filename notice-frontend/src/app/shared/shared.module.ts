@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Services } from './services/';
+import { Directives } from './directives/';
 import { MaterialModule } from './modules/material.module';
 import { ModalDeleteComponent } from './directives/modal-delete/modal-delete.component';
-import { ListNoticesComponent } from './directives/list-notices/list-notices.component';
-import { AddNoticeComponent } from './directives/add-notice/add-notice.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ModalDeleteComponent, ListNoticesComponent, AddNoticeComponent],
+  declarations: [
+    ...Directives
+  ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
   ],
   providers: [
     ...Services
@@ -19,10 +22,9 @@ import { AddNoticeComponent } from './directives/add-notice/add-notice.component
     ModalDeleteComponent
   ],
   exports:[
+    ...Directives,
     MaterialModule
   ]
   
 })
-export class SharedModule {
-
- }
+export class SharedModule {}

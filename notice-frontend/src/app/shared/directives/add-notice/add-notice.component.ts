@@ -46,7 +46,6 @@ export class AddNoticeComponent implements OnInit {
         
         if(this.noticeService.getSearch()){
           this.noticeObject = data;
-          debugger;  
           this.formNotice.setValue({
             title: this.noticeObject.title,
             description: this.noticeObject.description,
